@@ -1,0 +1,73 @@
+class MathOps():
+    X = {}
+    Y = {}
+
+    def get_first_member(self):
+        print("First member is {0}".format(self.X))
+
+    def get_second_member(self):
+        print("Second member is {0}".format(self.Y))
+
+    def getMembers(self):
+        print("The class's members are {0} and {1}"
+              .format(self.X, self.Y))
+
+    def sum(self, first, second):
+        return first + second
+
+    def subtraction(self, first, second):
+        return first - second
+
+    def multiplication(self, first, second):
+        return first * second
+
+    def division(self, first, second):
+        if second == 0:
+            return "The divisor is 0"
+        else:
+            return first / second
+
+    def sumMembers(self):
+        return self.sum(self.X, self.Y)
+
+    def subtractMembers(self):
+        return self.subtraction(self.X, self.Y)
+
+    def multiplyMembers(self):
+        return self.multiplication(self.X, self.Y)
+
+    def divideMembers(self):
+        return self.division(self.X, self.Y)
+
+
+instance = MathOps()
+instance.X = 5
+instance.Y = 7
+#print(instance.sum(4,5))
+#print(instance.division(7,4))
+#print(instance.multiplication(3,4))
+#print(instance.division(0,9))
+#print(instance.division(9,0))
+#print(instance.subtraction(98,76))
+
+def testing(expected, result):
+    if expected == result:
+        print("Correct")
+    else:
+        print("Incorrect for pair {0} and {1}".format(expected, result))
+
+testing (12, instance.sumMembers())
+testing (13, instance.sumMembers())
+
+testing (35, instance.multiplyMembers())
+testing (34, instance.multiplyMembers())
+
+testing (-2, instance.subtractMembers())
+testing (34, instance.subtractMembers())
+
+testing (0.7142857142857143, instance.divideMembers())
+testing (34, instance.divideMembers())
+
+instance.Y = 0
+testing (0.7142857142857143, instance.divideMembers())
+testing ("The divisor is 0", instance.divideMembers())
