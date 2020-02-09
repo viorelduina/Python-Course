@@ -54,7 +54,8 @@ print("The sum of all even numbers is ",sum_even)
 print("The biggest number is ", max)
 
 for i in range(len(my_list)-1):
-    if int(my_list[i+1]) - int(my_list[i]) == 1:
+#modificarea ceruta de tine
+    if int(my_list[i+1]) - int(my_list[i]) > 0:
         count_x = count_x + 1
         if count_x >max_count_x:
             max_count_x = count_x
