@@ -1,0 +1,40 @@
+class myFile:
+  name = ""
+  
+  def __init__(self, _name):
+    self.name = _name
+
+
+class writeMyFile(myFile):
+  def __init__(self, _name):
+    super().__init__(_name)
+
+  def writeIT(self):
+    f = open(self.name, "w")
+    n = 30
+    m = 40
+    a = [['x'] * m for i in range(n)] 
+    for item in a:
+      f.write(' '.join([str(elem) for elem in item])+"\r\n")
+      #print(item)
+    f.close()
+
+class readMyFile(myFile):
+  def __init__(self, _name):
+    super().__init__(_name)
+
+  def readIT(self):
+    f = open(self.name)
+    a = []
+    for line in f:
+      a.append( f.readline())
+    for item in a:
+      print(item)
+    f.close()
+
+
+w = writeMyFile("temp.txt")
+w.writeIT()
+
+r = readMyFile("temp.txt")
+r.readIT()
